@@ -1,6 +1,12 @@
 /* --------------------------------------------------
-   Global
+   Global Reset
 -------------------------------------------------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,7 +20,7 @@ html {
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  color: #ff0000; /* main spooky red */
+  color: #ff0000;
   position: relative;
   background-color: transparent;
 }
@@ -39,6 +45,30 @@ img {
 }
 
 /* --------------------------------------------------
+   Jumpscare Overlay
+-------------------------------------------------- */
+#introVideoOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+#introVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------
    Center Backdrop
 -------------------------------------------------- */
 .center-backdrop {
@@ -54,7 +84,6 @@ img {
 .backdrop-img {
   width: 100%;
   height: auto;
-  display: block;
 }
 
 /* --------------------------------------------------
@@ -83,13 +112,12 @@ img {
 .brand-logo {
   height: 48px;
   width: auto;
-  display: block;
 }
 
 .nav-links {
   display: flex;
   gap: 1.5rem;
-  color: #ffea00; /* spooky yellow */
+  color: #ffea00;
   font-weight: 600;
 }
 
@@ -109,7 +137,7 @@ img {
 
 .eyebrow {
   margin-bottom: 0.75rem;
-  color: #ffea00; /* rotten yellow */
+  color: #ffea00;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.72rem;
@@ -296,52 +324,43 @@ textarea {
   border-radius: 26px;
   background-image: url("images/s-l1200.jpg");
   background-size: cover;
-  background-position: center;
   border: 1px solid #550000;
   overflow: hidden;
-  z-index: 1;
 }
 
-/* Map pins – visible, glowing, readable */
 .map-pin {
   position: absolute;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.4rem;
+  height: 2.4rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-weight: 900;
+  font-weight: 800;
   background: #ff0000;
-  color: #ffffff;
-  border: 3px solid #000;
-  box-shadow: 0 0 12px #ff0000, 0 0 24px #7d0000;
-  z-index: 5;
+  color: #fff;
+  box-shadow: 0 14px 24px rgba(255, 0, 0, 0.3);
 }
 
-/* Map labels – readable on dark background */
 .map-label {
   position: absolute;
-  background: rgba(0, 0, 0, 0.85);
-  border: 2px solid #ff0000;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #550000;
   border-radius: 999px;
   padding: 0.45rem 0.7rem;
   font-size: 0.75rem;
   font-weight: 700;
   color: #ffea00;
-  text-shadow: 0 0 4px #000;
-  z-index: 5;
 }
 
-/* Pin positions calibrated for images/s-l1200.jpg */
-.pin-a { top: 22%; left: 30%; }
-.pin-b { top: 48%; left: 58%; }
-.pin-c { top: 72%; left: 38%; }
+.map-card {
+  position: relative;
+  z-index: 1;
+}
 
-/* Label positions aligned with pins */
-.label-a { top: 14%; left: 22%; }
-.label-b { top: 40%; left: 70%; }
-.label-c { top: 64%; left: 30%; }
-
+.map-pin,
+.map-label {
+  z-index: 5;
+}
 
 /* --------------------------------------------------
    Report Form
@@ -419,28 +438,29 @@ textarea {
   }
 }
 
+/* --------------------------------------------------
+   Skeleton Parade
+-------------------------------------------------- */
 .top-body-image-wrapper {
   width: 100%;
   text-align: center;
   padding-top: 40px;
-  padding-bottom: 100px; /* <-- bottom padding here */
+  padding-bottom: 100px;
   position: relative;
   z-index: 10;
 }
 
-
 .top-body-image {
-  width: 700px;   /* adjust size */
+  width: 700px;
   max-width: 90%;
   height: auto;
-  display: block;
   margin: 0 auto;
 }
 
 .skeleton-parade {
   position: relative;
   width: 100%;
-  height: 200px; /* adjust based on GIF height */
+  height: 200px;
   overflow: hidden;
   margin-bottom: 40px;
 }
@@ -448,39 +468,36 @@ textarea {
 .skeleton {
   position: absolute;
   top: 0;
-  right: -150px; /* start off-screen */
+  right: -150px;
   width: 120px;
   animation: walk-left 6s linear infinite;
 }
 
-/* Multiple skeletons with staggered delays */
 .skeleton:nth-child(1) { animation-delay: 0s; }
 .skeleton:nth-child(2) { animation-delay: 2s; }
 .skeleton:nth-child(3) { animation-delay: 4s; }
 
 @keyframes walk-left {
-  0% {
-    right: -150px;
-  }
-  100% {
-    right: 110%;
-  }
+  0% { right: -150px; }
+  100% { right: 110%; }
 }
 
-
+/* --------------------------------------------------
+   Floating Image
+-------------------------------------------------- */
 .free-image-container {
-   position: absolute;   /* does NOT affect layout */
+  position: absolute;
   top: 800px;
   left: 1000px;
   width: 100%;
-  height: 0;            /* zero height = no layout impact */
-  pointer-events: none; /* image won't block clicks */
-  z-index: -1;  
+  height: 0;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .free-image {
- position: absolute;   /* lets you place it anywhere */
-  width: 400px;         /* adjust */
+  position: absolute;
+  width: 400px;
   height: auto;
   pointer-events: none;
 }

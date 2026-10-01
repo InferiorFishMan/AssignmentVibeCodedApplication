@@ -24,23 +24,31 @@
 
   <body>
 
-    
+    <!-- Jumpscare overlay -->
+    <div id="introVideoOverlay">
+      <video id="introVideo" autoplay playsinline>
+        <source src="images/0001-0029.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+      <!-- Single Audio File -->
+<audio id="mainAudio" src="images/0001-1904.mp3"></audio>
 
     <!-- Centered scrolling backdrop image -->
     <div class="center-backdrop">
-      <img src="images/spookyimage.png" alt="" class="backdrop-img">
+      <img src="images/spookyimage.png" alt="" class="backdrop-img" />
     </div>
 
     <!-- Header -->
     <header class="topbar">
       <div class="container nav">
-        
-
         <!-- Brand logo -->
         <div class="brand">
-          <img src="images/Cool Text - Spooky Repair Caf 516653141923763.png"
-               alt="Spooky Repair Cafe Logo"
-               class="brand-logo">
+          <img
+            src="images/Cool Text - Spooky Repair Caf 516653141923763.png"
+            alt="Spooky Repair Cafe Logo"
+            class="brand-logo"
+          />
         </div>
 
         <!-- Navigation -->
@@ -50,26 +58,25 @@
           <a href="#support">Support</a>
           <a href="#report">Report issue</a>
         </nav>
-
       </div>
     </header>
 
     <!-- Main content -->
     <main>
+      <!-- Image directly under navbar -->
+      <div class="top-body-image-wrapper">
+        <img
+          src="images/Cool Text - Spooky Repair Caf 516653141923763.png"
+          alt="Top Body Image"
+          class="top-body-image"
+        />
+      </div>
 
-  <!-- Image directly under navbar -->
-  <div class="top-body-image-wrapper">
-    <img src="images/Cool Text - Spooky Repair Caf 516653141923763.png" alt="Top Body Image" class="top-body-image">
-  </div>
-  <div class="skeleton-parade">
-  <img src="images/200w.gif" class="skeleton">
-  <img src="images/200w.gif" class="skeleton">
-  <img src="images/200w.gif" class="skeleton">
-  </div>
-
-
-
-
+      <div class="skeleton-parade">
+        <img src="images/200w.gif" class="skeleton" />
+        <img src="images/200w.gif" class="skeleton" />
+        <img src="images/200w.gif" class="skeleton" />
+      </div>
 
       <!-- Hero -->
       <section class="hero">
@@ -77,11 +84,11 @@
           <div class="hero-copy">
             <p class="eyebrow">Fix it before you toss it</p>
             <h1>Give your broken appliances a second life.</h1>
-            
 
             <p class="lead">
-              Repair Cafe helps people with cracked, noisy, or dead appliances understand the
-              likely cause, learn beginner-safe repair steps, and find nearby help.
+              Repair Cafe helps people with cracked, noisy, or dead appliances
+              understand the likely cause, learn beginner-safe repair steps, and
+              find nearby help.
             </p>
 
             <div class="hero-actions">
@@ -96,9 +103,13 @@
             </ul>
           </div>
         </div>
+
         <div class="free-image-container">
-  <img src="images/Screenshot 2026-10-01 221556.png" class="free-image">
-</div>
+          <img
+            src="images/Screenshot 2026-10-01 221556.png"
+            class="free-image"
+          />
+        </div>
       </section>
 
       <!-- Triage -->
@@ -163,25 +174,37 @@
             <article class="info-card">
               <span class="icon">⚡</span>
               <h3>Check the power path</h3>
-              <p>Look for damaged cords, tripped fuses, and loose plugs before taking anything apart.</p>
+              <p>
+                Look for damaged cords, tripped fuses, and loose plugs before
+                taking anything apart.
+              </p>
             </article>
 
             <article class="info-card">
               <span class="icon">🧰</span>
               <h3>Use a safe toolkit</h3>
-              <p>Basic screwdrivers, pliers, a multimeter, and a flashlight are enough for many fixes.</p>
+              <p>
+                Basic screwdrivers, pliers, a multimeter, and a flashlight are
+                enough for many fixes.
+              </p>
             </article>
 
             <article class="info-card">
               <span class="icon">🧼</span>
               <h3>Clean before replacing</h3>
-              <p>Dust, lint, and blocked vents are often the simple cause behind “dead” appliances.</p>
+              <p>
+                Dust, lint, and blocked vents are often the simple cause behind
+                “dead” appliances.
+              </p>
             </article>
 
             <article class="info-card">
               <span class="icon">📘</span>
               <h3>Know when to stop</h3>
-              <p>Power, gas, or refrigerant issues should be handled by a qualified repairer.</p>
+              <p>
+                Power, gas, or refrigerant issues should be handled by a
+                qualified repairer.
+              </p>
             </article>
           </div>
         </div>
@@ -195,9 +218,18 @@
             <h2>Find a helping hand near you.</h2>
 
             <ul class="support-list">
-              <li><strong>Community repair hubs</strong> — guided sessions for appliance fixes.</li>
-              <li><strong>Repair clinics</strong> — volunteer technicians offer advice.</li>
-              <li><strong>Skill exchange</strong> — learn simple repair steps in person or online.</li>
+              <li>
+                <strong>Community repair hubs</strong> — guided sessions for
+                appliance fixes.
+              </li>
+              <li>
+                <strong>Repair clinics</strong> — volunteer technicians offer
+                advice.
+              </li>
+              <li>
+                <strong>Skill exchange</strong> — learn simple repair steps in
+                person or online.
+              </li>
             </ul>
           </div>
 
@@ -234,18 +266,24 @@
 
             <div class="field-group full-width">
               <label for="symptoms">What’s happening?</label>
-              <textarea id="symptoms" rows="4" placeholder="It starts, then stops, and smells warm after a minute."></textarea>
+              <textarea
+                id="symptoms"
+                rows="4"
+                placeholder="It starts, then stops, and smells warm after a minute."
+              ></textarea>
             </div>
 
-            <button type="submit" class="button primary">Submit for advice</button>
+            <button type="submit" class="button primary">
+              Submit for advice
+            </button>
           </form>
 
           <div id="formOutput" class="form-output" aria-live="polite">
-            Your report will suggest a safe first check and a likely next action.
+            Your report will suggest a safe first check and a likely next
+            action.
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- Footer -->
@@ -254,11 +292,7 @@
         <span>Repair Cafe</span>
         <span>Built for practical, circular living.</span>
       </div>
-      </div>
     </footer>
-
-
-
 
     <script src="script.js"></script>
   </body>
