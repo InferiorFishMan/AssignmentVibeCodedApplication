@@ -3,71 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Repair Cafe</title>
+    <title>Spooky Repair Cafe</title>
+
+    <link rel="icon" type="image" href="/images/Costly-Repair2-300x300.png" />
+
     <meta
       name="description"
       content="Repair Cafe helps people diagnose small appliance problems, learn beginner repair skills, and find local repair support before discarding broken items."
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
+
+    
+
+    <!-- Centered scrolling backdrop image -->
+    <div class="center-backdrop">
+      <img src="images/spookyimage.png" alt="" class="backdrop-img">
+    </div>
+
+    <!-- Header -->
     <header class="topbar">
       <div class="container nav">
+        
+
+        <!-- Brand logo -->
         <div class="brand">
-          <span class="brand-mark">🔧</span>
-          <span>Repair Cafe</span>
+          <img src="images/Cool Text - Spooky Repair Caf 516653141923763.png"
+               alt="Spooky Repair Cafe Logo"
+               class="brand-logo">
         </div>
+
+        <!-- Navigation -->
         <nav class="nav-links">
           <a href="#triage">Quick triage</a>
           <a href="#lessons">Learn</a>
           <a href="#support">Support</a>
           <a href="#report">Report issue</a>
         </nav>
+
       </div>
     </header>
 
+    <!-- Main content -->
     <main>
+
+  <!-- Image directly under navbar -->
+  <div class="top-body-image-wrapper">
+    <img src="images/Cool Text - Spooky Repair Caf 516653141923763.png" alt="Top Body Image" class="top-body-image">
+  </div>
+  <div class="skeleton-parade">
+  <img src="images/200w.gif" class="skeleton">
+  <img src="images/200w.gif" class="skeleton">
+  <img src="images/200w.gif" class="skeleton">
+  </div>
+
+
+
+
+
+      <!-- Hero -->
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Fix it before you toss it</p>
             <h1>Give your broken appliances a second life.</h1>
+            
+
             <p class="lead">
               Repair Cafe helps people with cracked, noisy, or dead appliances understand the
               likely cause, learn beginner-safe repair steps, and find nearby help.
             </p>
+
             <div class="hero-actions">
               <a href="#report" class="button primary">Check my appliance</a>
               <a href="#lessons" class="button secondary">Start learning</a>
             </div>
+
             <ul class="hero-stats">
-              <li><strong>2 min</strong><span>quick diagnostics</span></li>
-              <li><strong>12+</strong><span>basic repair guides</span></li>
+              <li><strong>3 hours</strong><span>quick diagnostics</span></li>
+              <li><strong>2 billion+</strong><span>basic repair guides</span></li>
               <li><strong>Local</strong><span>repair support</span></li>
             </ul>
           </div>
-
-          <div class="hero-card">
-            <div class="mini-card">
-              <span class="chip success">Most likely fix</span>
-              <h3>Washer not spinning</h3>
-              <p>Power, lid switch, or drain blockage are common beginner checks.</p>
-              <div class="step-list">
-                <span>1. Check power cable</span>
-                <span>2. Listen for motor hum</span>
-                <span>3. Clear drain filter</span>
-              </div>
-            </div>
-          </div>
         </div>
+        <div class="free-image-container">
+  <img src="images/Screenshot 2026-10-01 221556.png" class="free-image">
+</div>
       </section>
 
+      <!-- Triage -->
       <section id="triage" class="triage section">
         <div class="container">
           <div class="section-heading">
@@ -117,6 +151,7 @@
         </div>
       </section>
 
+      <!-- Lessons -->
       <section id="lessons" class="section alt-bg">
         <div class="container">
           <div class="section-heading">
@@ -130,16 +165,19 @@
               <h3>Check the power path</h3>
               <p>Look for damaged cords, tripped fuses, and loose plugs before taking anything apart.</p>
             </article>
+
             <article class="info-card">
               <span class="icon">🧰</span>
               <h3>Use a safe toolkit</h3>
               <p>Basic screwdrivers, pliers, a multimeter, and a flashlight are enough for many fixes.</p>
             </article>
+
             <article class="info-card">
               <span class="icon">🧼</span>
               <h3>Clean before replacing</h3>
               <p>Dust, lint, and blocked vents are often the simple cause behind “dead” appliances.</p>
             </article>
+
             <article class="info-card">
               <span class="icon">📘</span>
               <h3>Know when to stop</h3>
@@ -149,11 +187,13 @@
         </div>
       </section>
 
+      <!-- Support -->
       <section id="support" class="section">
         <div class="container support-layout">
           <div>
             <p class="eyebrow">Local support</p>
             <h2>Find a helping hand near you.</h2>
+
             <ul class="support-list">
               <li><strong>Community repair hubs</strong> — guided sessions for appliance fixes.</li>
               <li><strong>Repair clinics</strong> — volunteer technicians offer advice.</li>
@@ -165,6 +205,7 @@
             <div class="map-pin pin-a">A</div>
             <div class="map-pin pin-b">B</div>
             <div class="map-pin pin-c">C</div>
+
             <div class="map-label label-a">North repair hub</div>
             <div class="map-label label-b">Community workshop</div>
             <div class="map-label label-c">Skill share café</div>
@@ -172,6 +213,7 @@
         </div>
       </section>
 
+      <!-- Report -->
       <section id="report" class="section alt-bg">
         <div class="container form-wrap">
           <div class="section-heading narrow">
@@ -184,14 +226,17 @@
               <label for="name">Your name</label>
               <input id="name" type="text" placeholder="Jordan" />
             </div>
+
             <div class="field-group">
-              <label for="appliance">Appliance</label>
-              <input id="appliance" type="text" placeholder="Portable fan" />
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="jordan@example.com" />
             </div>
+
             <div class="field-group full-width">
               <label for="symptoms">What’s happening?</label>
               <textarea id="symptoms" rows="4" placeholder="It starts, then stops, and smells warm after a minute."></textarea>
             </div>
+
             <button type="submit" class="button primary">Submit for advice</button>
           </form>
 
@@ -200,14 +245,20 @@
           </div>
         </div>
       </section>
+
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container footer-row">
         <span>Repair Cafe</span>
         <span>Built for practical, circular living.</span>
       </div>
+      </div>
     </footer>
+
+
+
 
     <script src="script.js"></script>
   </body>

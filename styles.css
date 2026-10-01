@@ -1,33 +1,26 @@
-:root {
-  --bg: #f4f7f2;
-  --surface: #ffffff;
-  --surface-strong: #eef7ee;
-  --primary: #1f7a5d;
-  --primary-dark: #174f3d;
-  --accent: #f0b841;
-  --text: #183127;
-  --muted: #5d736a;
-  --border: rgba(24, 49, 39, 0.1);
-  --shadow: 0 18px 45px rgba(31, 122, 93, 0.12);
-}
-
+/* --------------------------------------------------
+   Global
+-------------------------------------------------- */
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+  background-color: #000;
+  background-image: url("images/ghost-ghost-spinning.gif");
+  background-size: 90px;
 }
 
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(180deg, #f5faf4 0%, #edf6f0 100%);
-  color: var(--text);
+  color: #ff0000; /* main spooky red */
+  position: relative;
+  background-color: transparent;
 }
 
 a {
-  color: inherit;
+  color: #ff0000;
   text-decoration: none;
 }
 
@@ -45,17 +38,34 @@ img {
   padding: 5rem 0;
 }
 
-.alt-bg {
-  background: rgba(255, 255, 255, 0.52);
+/* --------------------------------------------------
+   Center Backdrop
+-------------------------------------------------- */
+.center-backdrop {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  z-index: -1;
+  pointer-events: none;
 }
 
+.backdrop-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------
+   Topbar / Navigation
+-------------------------------------------------- */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(244, 247, 242, 0.82);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(24, 49, 39, 0.05);
+  background: #000;
+  border-bottom: 1px solid #550000;
 }
 
 .nav {
@@ -66,30 +76,26 @@ img {
 }
 
 .brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.7rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
 }
 
-.brand-mark {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: var(--primary);
-  color: white;
+.brand-logo {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
   display: flex;
   gap: 1.5rem;
-  color: var(--muted);
+  color: #ffea00; /* spooky yellow */
   font-weight: 600;
 }
 
+/* --------------------------------------------------
+   Hero
+-------------------------------------------------- */
 .hero {
   padding: 5rem 0 4rem;
 }
@@ -102,19 +108,18 @@ img {
 }
 
 .eyebrow {
-  margin: 0 0 0.75rem;
-  color: var(--primary);
+  margin-bottom: 0.75rem;
+  color: #ffea00; /* rotten yellow */
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.72rem;
   font-weight: 800;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   margin-top: 0;
   letter-spacing: -0.04em;
+  color: #ff0000;
 }
 
 h1 {
@@ -132,7 +137,7 @@ h2 {
   max-width: 620px;
   font-size: 1.08rem;
   line-height: 1.7;
-  color: var(--muted);
+  color: #ff0000;
 }
 
 .hero-actions {
@@ -159,14 +164,15 @@ h2 {
 }
 
 .button.primary {
-  background: linear-gradient(135deg, var(--primary), #2b9a77);
-  color: white;
-  box-shadow: 0 12px 25px rgba(31, 122, 93, 0.2);
+  background: linear-gradient(135deg, #7d0000, #2b9a77);
+  color: #fff;
+  box-shadow: 0 12px 25px rgba(255, 0, 0, 0.3);
 }
 
 .button.secondary {
-  border-color: var(--border);
-  background: rgba(255, 255, 255, 0.7);
+  border-color: #550000;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffea00;
 }
 
 .hero-stats {
@@ -175,95 +181,38 @@ h2 {
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin: 1.5rem 0 0;
+  margin-top: 1.5rem;
 }
 
 .hero-stats li {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  color: var(--muted);
+  color: #ffea00;
 }
 
 .hero-stats strong {
   font-size: 1.2rem;
-  color: var(--text);
+  color: #ff0000;
 }
 
-.hero-card {
-  display: flex;
-  justify-content: center;
-}
-
-.mini-card {
-  width: min(100%, 420px);
-  background: linear-gradient(180deg, var(--surface) 0%, #edf7f0 100%);
-  border: 1px solid var(--border);
-  border-radius: 26px;
-  box-shadow: var(--shadow);
-  padding: 1.6rem;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.chip.success {
-  background: rgba(31, 122, 93, 0.12);
-  color: var(--primary-dark);
-}
-
-.mini-card h3 {
-  margin: 1rem 0 0.4rem;
-  font-size: 1.7rem;
-}
-
-.mini-card p {
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.step-list {
-  display: grid;
-  gap: 0.65rem;
-  color: var(--text);
-  font-weight: 600;
-}
-
-.section-heading {
-  margin-bottom: 2rem;
-}
-
-.section-heading.narrow {
-  max-width: 480px;
-}
-
+/* --------------------------------------------------
+   Triage Panel
+-------------------------------------------------- */
 .triage-panel {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: rgba(255, 0, 0, 0.15);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid var(--border);
+  border: 1px solid #550000;
   border-radius: 24px;
   padding: 1.25rem;
-  box-shadow: var(--shadow);
-}
-
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
+  box-shadow: 0 18px 45px rgba(255, 0, 0, 0.25);
 }
 
 .field-group label {
   font-weight: 700;
-  color: var(--text);
+  color: #ffea00;
 }
 
 select,
@@ -272,34 +221,37 @@ textarea {
   width: 100%;
   padding: 0.9rem 1rem;
   border-radius: 12px;
-  border: 1px solid var(--border);
-  background: #fff;
-  font: inherit;
-  color: var(--text);
+  border: 1px solid #550000;
+  background: #000;
+  color: #ffea00;
 }
 
 .result-box {
   margin-top: 1.4rem;
-  background: linear-gradient(135deg, rgba(31, 122, 93, 0.08), rgba(240, 184, 65, 0.12));
-  border: 1px solid rgba(31, 122, 93, 0.12);
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid #550000;
   border-radius: 18px;
   padding: 1.1rem 1.2rem;
   line-height: 1.7;
   font-weight: 600;
+  color: #ffea00;
 }
 
+/* --------------------------------------------------
+   Cards Grid
+-------------------------------------------------- */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.4rem;
 }
 
 .info-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background-image: url("images/hqdefault.jpg");
+  background-size: cover;
   border-radius: 20px;
   padding: 1.4rem;
-  box-shadow: 0 12px 24px rgba(24, 49, 39, 0.04);
+  box-shadow: 0 12px 24px rgba(255, 0, 0, 0.2);
 }
 
 .icon {
@@ -308,17 +260,21 @@ textarea {
   width: 3rem;
   height: 3rem;
   border-radius: 12px;
-  background: rgba(31, 122, 93, 0.1);
+  background: #7d0000;
   font-size: 1.4rem;
   margin-bottom: 0.8rem;
+  color: #ffea00;
 }
 
 .info-card p {
   margin: 0;
-  color: var(--muted);
+  color: #ffea00;
   line-height: 1.7;
 }
 
+/* --------------------------------------------------
+   Support Section
+-------------------------------------------------- */
 .support-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -330,7 +286,7 @@ textarea {
   display: grid;
   gap: 1rem;
   padding-left: 1.2rem;
-  color: var(--muted);
+  color: #ffea00;
   line-height: 1.7;
 }
 
@@ -338,86 +294,105 @@ textarea {
   position: relative;
   min-height: 320px;
   border-radius: 26px;
-  background: linear-gradient(135deg, rgba(31, 122, 93, 0.08), rgba(240, 184, 65, 0.12));
-  border: 1px solid var(--border);
+  background-image: url("images/s-l1200.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #550000;
   overflow: hidden;
+  z-index: 1;
 }
 
+/* Map pins – visible, glowing, readable */
 .map-pin {
   position: absolute;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.8rem;
+  height: 2.8rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-weight: 800;
-  background: var(--primary);
-  color: white;
-  box-shadow: 0 14px 24px rgba(31, 122, 93, 0.2);
+  font-weight: 900;
+  background: #ff0000;
+  color: #ffffff;
+  border: 3px solid #000;
+  box-shadow: 0 0 12px #ff0000, 0 0 24px #7d0000;
+  z-index: 5;
 }
 
-.pin-a { top: 18%; left: 25%; }
-.pin-b { top: 52%; left: 54%; }
-.pin-c { bottom: 18%; left: 38%; }
-
+/* Map labels – readable on dark background */
 .map-label {
   position: absolute;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #ff0000;
   border-radius: 999px;
   padding: 0.45rem 0.7rem;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--muted);
+  color: #ffea00;
+  text-shadow: 0 0 4px #000;
+  z-index: 5;
 }
 
-.label-a { top: 8%; left: 18%; }
-.label-b { top: 44%; right: 10%; }
-.label-c { bottom: 8%; left: 28%; }
+/* Pin positions calibrated for images/s-l1200.jpg */
+.pin-a { top: 22%; left: 30%; }
+.pin-b { top: 48%; left: 58%; }
+.pin-c { top: 72%; left: 38%; }
 
+/* Label positions aligned with pins */
+.label-a { top: 14%; left: 22%; }
+.label-b { top: 40%; left: 70%; }
+.label-c { top: 64%; left: 30%; }
+
+
+/* --------------------------------------------------
+   Report Form
+-------------------------------------------------- */
 .form-wrap {
   max-width: 960px;
 }
 
 .repair-form {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.68);
-  border: 1px solid var(--border);
+  background-image: url("images/cfc92674208b20a4a3ce01defecccd32.gif");
+  background-size: cover;
+  border: 1px solid #550000;
   border-radius: 24px;
   padding: 1.5rem;
-  box-shadow: var(--shadow);
-}
-
-.full-width {
-  grid-column: 1 / -1;
+  box-shadow: 0 18px 45px rgba(255, 0, 0, 0.25);
 }
 
 .form-output {
   margin-top: 1.25rem;
-  background: rgba(31, 122, 93, 0.08);
-  color: var(--primary-dark);
-  border-left: 4px solid var(--primary);
+  background: rgba(255, 0, 0, 0.15);
+  color: #ffea00;
+  border-left: 4px solid #ff0000;
   border-radius: 12px;
   padding: 1rem 1.1rem;
   line-height: 1.7;
   font-weight: 600;
 }
 
+/* --------------------------------------------------
+   Footer
+-------------------------------------------------- */
 .footer {
   padding: 1rem 0 2rem;
-  color: var(--muted);
+  color: #ff0000;
+  background: #000;
 }
 
 .footer-row {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  border-top: 1px solid rgba(24, 49, 39, 0.08);
+  border-top: 1px solid #550000;
   padding-top: 1rem;
 }
 
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
 @media (max-width: 820px) {
   .hero-grid,
   .support-layout,
@@ -428,10 +403,10 @@ textarea {
   }
 
   .nav {
-    align-items: flex-start;
-    padding: 0.8rem 0;
-    gap: 1rem;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.8rem 0;
   }
 
   .nav-links {
@@ -442,4 +417,70 @@ textarea {
   .footer-row {
     flex-direction: column;
   }
+}
+
+.top-body-image-wrapper {
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 100px; /* <-- bottom padding here */
+  position: relative;
+  z-index: 10;
+}
+
+
+.top-body-image {
+  width: 700px;   /* adjust size */
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.skeleton-parade {
+  position: relative;
+  width: 100%;
+  height: 200px; /* adjust based on GIF height */
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.skeleton {
+  position: absolute;
+  top: 0;
+  right: -150px; /* start off-screen */
+  width: 120px;
+  animation: walk-left 6s linear infinite;
+}
+
+/* Multiple skeletons with staggered delays */
+.skeleton:nth-child(1) { animation-delay: 0s; }
+.skeleton:nth-child(2) { animation-delay: 2s; }
+.skeleton:nth-child(3) { animation-delay: 4s; }
+
+@keyframes walk-left {
+  0% {
+    right: -150px;
+  }
+  100% {
+    right: 110%;
+  }
+}
+
+
+.free-image-container {
+   position: absolute;   /* does NOT affect layout */
+  top: 800px;
+  left: 1000px;
+  width: 100%;
+  height: 0;            /* zero height = no layout impact */
+  pointer-events: none; /* image won't block clicks */
+  z-index: -1;  
+}
+
+.free-image {
+ position: absolute;   /* lets you place it anywhere */
+  width: 400px;         /* adjust */
+  height: auto;
+  pointer-events: none;
 }

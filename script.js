@@ -71,10 +71,10 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const name = document.getElementById("name").value || "Friend";
-  const appliance = document.getElementById("appliance").value || "your appliance";
+  const email = document.getElementById("email").value || "your email address";
   const symptoms = document.getElementById("symptoms").value || "There are visible signs of wear or blocked airflow.";
 
-  output.innerHTML = `Thanks, ${name}. For ${appliance}, the first safe step is to unplug it and check for visible damage, dust buildup, or a loose cord. Based on your description — “${symptoms}” — the most likely next action is a careful cleaning and inspection before any part replacement. If it still fails, bring it to a local repair clinic or repair cafe for guided support.`;
+  output.innerHTML = `Thanks, ${name}. We will have a look into your written description and send the best fix-up advice we can offer to ${email}. For the time being, the first safe step is to unplug the appliance and check for visible damage, dust buildup, or a loose cord. We will let you know when it's time to bring it to a local repair clinic or repair cafe for guided support.`;
 });
 
 updateDiagnosis();
