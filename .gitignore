@@ -1,0 +1,11 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local dev
+env/
+.vite/
+node_modules/
+
+# Editor files
+.vscode/
