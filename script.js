@@ -6,24 +6,52 @@ const introVideo = document.getElementById("introVideo");
 const introOverlay = document.getElementById("introVideoOverlay");
 const mainAudio = document.getElementById("mainAudio");
 
-// CHANGE THIS → delay before audio starts (milliseconds)
-const audioDelay = 100; // 1.2 seconds after video begins
+let introFallback;
 
-// Start audio after delay
+const dismissIntro = () => {
+  if (!introOverlay.isConnected) return;
+  clearTimeout(introFallback);
+  introOverlay.style.opacity = "0";
+  setTimeout(() => introOverlay.remove(), 800);
+};
+
+introFallback = setTimeout(dismissIntro, 15000);
+introVideo.addEventListener("error", dismissIntro, { once: true });
+introVideo.addEventListener("ended", () => clearTimeout(introFallback), { once: true });
+
+// Delay before audio starts (milliseconds)
+const audioDelay = 200;
+
+// Unlock audio on ANY user interaction
+["click", "keydown", "touchstart"].forEach(evt => {
+  window.addEventListener(evt, () => {
+    mainAudio.play().catch(() => {});
+  });
+});
+
+// Try to play audio after delay
 setTimeout(() => {
   mainAudio.volume = 1.0;
-  mainAudio.play().catch(() => {});
+  mainAudio.play().catch(() => {
+    // Browser blocked autoplay → will retry later
+  });
 }, audioDelay);
 
-// When jumpscare video ends → fade overlay + continue audio as music
+// When jumpscare video ends → fade overlay + retry audio
 introVideo.addEventListener("ended", () => {
   introOverlay.style.opacity = "0";
 
   setTimeout(() => {
     introOverlay.remove();
+
+    // Lower volume for background music
     mainAudio.volume = 0.4;
+
+    // Retry audio (this ALWAYS works because user interacted by loading page)
+    mainAudio.play().catch(() => {});
   }, 800);
 });
+
 
 /* ------------------------------
    Original Diagnosis System
