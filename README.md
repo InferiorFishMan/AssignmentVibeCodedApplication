@@ -1,37 +1,36 @@
 # Repair Cafe
 
-A lightweight static web app for helping people with broken household appliances diagnose simple issues, learn beginner repair basics, and find local repair support.
+A static, mobile-friendly appliance repair guide. The experience offers a short, safety-first check and lets people choose between private at-home repair and a community repair cafe.
 
-## Project goal
+## Research-to-design
 
-The app addresses a common repair barrier: people often want to fix broken appliances instead of discarding them, but they do not know where to start or which basic tasks are safe to attempt.
+Week 3 research changed the design direction from an assumed eco-anxious, emotionally attached customer to people who may be practical and self-reliant. In two interviews, one participant described trying to find the cause of an appliance problem, while another preferred a private mechanic and repairs at their own organization. A participant also valued the shared experience at a repair cafe; the other was not interested in one.
+
+The prototype therefore:
+
+- starts with a quick symptom check rather than a long lesson or sign-up;
+- gives low-risk, external checks and clear stop conditions;
+- does not require an account or collect a repair report;
+- offers both at-home repair and community repair as equally valid choices.
+
+Two interviews are an early signal, not a representative sample. The lo-fi artifact at [prototype.html](./prototype.html) includes the research rationale and follow-up questions to test.
 
 ## Run locally
 
-Open the project folder in a browser, or serve it locally with any static server:
+Serve the folder with any static web server:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit:
+Visit `http://localhost:8000`. Open `/prototype.html` for the lo-fi prototype.
 
-- http://localhost:8000
+## Deployment
 
-## Deploy to GitHub Pages
+The project uses the GitHub Pages workflow in `.github/workflows/deploy-pages.yml`, which publishes the repository root on pushes to `main`.
 
-1. Create a repository on GitHub.
-2. Push this project to the repository.
-3. In GitHub, enable GitHub Pages from the main branch or via a workflow.
-4. A sample deployment workflow is included in `.github/workflows/deploy-pages.yml`.
+- Code: https://github.com/InferiorFishMan/AssignmentVibeCodedApplication
+- Build: https://inferiorfishman.github.io/AssignmentVibeCodedApplication/
+- Lo-fi prototype: https://inferiorfishman.github.io/AssignmentVibeCodedApplication/prototype.html
 
-## Deploy to Netlify
-
-1. Push the project to GitHub.
-2. Import the repository in Netlify.
-3. Set the publish directory to `.` and use the default static site settings.
-4. Or use the included `netlify.toml` configuration.
-
-## Notes
-
-This site is intentionally lightweight and easy to customize with additional repair guides, local workshop links, and a backend later if needed.
+The local-support links open Google Maps searches. Location text is only included in those links after the visitor chooses to search; no data is stored by this static site.

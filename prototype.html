@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Low-fidelity Repair Cafe prototype based on Week 3 context mapping and interviews." />
+    <title>Repair Cafe | Lo-fi prototype</title>
+    <link rel="stylesheet" href="prototype.css" />
+  </head>
+  <body>
+    <header class="wire-header">
+      <a class="wordmark" href="index.html"><span class="mark">RC</span> REPAIR CAFE / WIREFRAME</a>
+      <a href="index.html">Open the built experience ↗</a>
+    </header>
+
+    <main>
+      <section class="research-intro">
+        <p class="label">CYCLE 1 / PERSONAL PRODUCT</p>
+        <h1>A repair path that keeps the person in control.</h1>
+        <p>This lo-fi flow translates two Week 3 interviews into a practical first step, clear safety boundaries, and a choice of where to get help.</p>
+        <div class="research-summary">
+          <div><strong>01 — Self-reliance</strong><span>One participant tried to find the cause independently and did not search online.</span></div>
+          <div><strong>02 — Privacy</strong><span>Another preferred a private mechanic and repairs at their own organization.</span></div>
+          <div><strong>03 — Different social needs</strong><span>One enjoyed relating to others at a repair cafe; the other was not interested in one.</span></div>
+        </div>
+        <p class="caveat">Small sample: two interviews. These are design signals to test, not universal claims about appliance owners.</p>
+      </section>
+
+      <section class="wire-section">
+        <div class="section-heading">
+          <span class="screen-number">SCREEN 01</span>
+          <div><h2>Start without friction</h2><p>Lead with the immediate task instead of an account, long lesson, or guilt-based message.</p></div>
+        </div>
+        <div class="wire-frame">
+          <div class="frame-nav"><span>RC / REPAIR CAFE</span><span>REPAIR CHECK &nbsp; SUPPORT</span></div>
+          <div class="frame-hero">
+            <div>
+              <span class="wire-label">PRACTICAL HELP, YOUR WAY</span>
+              <h3>Something broke.<br />Start with the safe checks.</h3>
+              <p>Get a clear first step. Choose the kind of help that suits you.</p>
+              <a class="wire-button" href="#screen-check">[ START A REPAIR CHECK ]</a>
+              <small>No account. No pressure to take it apart.</small>
+            </div>
+            <div class="wire-plan">
+              <strong>YOUR NEXT MOVE</strong>
+              <p>01 &nbsp; Describe the symptom</p>
+              <p>02 &nbsp; Check what is safe</p>
+              <p>03 &nbsp; Choose what suits you</p>
+            </div>
+          </div>
+          <span class="annotation annotation-one">Interview cue: hands-on self diagnosis</span>
+          <span class="annotation annotation-two">Avoid assuming eco-anxiety or attachment</span>
+        </div>
+      </section>
+
+      <section class="wire-section" id="screen-check">
+        <div class="section-heading">
+          <span class="screen-number">SCREEN 02</span>
+          <div><h2>One clear, safe first check</h2><p>Short choices and visible guardrails keep the user in control. Guidance is a starting point, not a promised diagnosis.</p></div>
+        </div>
+        <div class="wire-frame">
+          <div class="frame-nav"><span>RC / REPAIR CAFE</span><span>REPAIR CHECK &nbsp; SUPPORT</span></div>
+          <div class="wire-content">
+            <div class="wire-side">
+              <span class="wire-label">01 / QUICK CHECK</span>
+              <h3>What is it doing?</h3>
+              <p>Pick the closest match. Start with checks that do not require opening the appliance.</p>
+              <div class="wire-note">[ PRIVACY ] Your choices stay in this page.</div>
+            </div>
+            <div class="wire-form">
+              <label>Appliance <span>[ Washing machine &nbsp;⌄ ]</span></label>
+              <label>What happened? <span>[ It will not turn on &nbsp;⌄ ]</span></label>
+              <div class="wire-button full">[ SHOW MY FIRST CHECKS ]</div>
+              <div class="wire-result"><strong>Start with the power path</strong><p>1. Check the outlet or wall switch.</p><p>2. Look at the plug and visible cable.</p><p>3. Check the manual for a user-accessible reset.</p></div>
+              <div class="wire-warning">[ ! ] Sparks, smoke, damaged cable, or water near electricity? Step away and contact a qualified repairer.</div>
+            </div>
+          </div>
+          <span class="annotation annotation-one">Prioritize low-risk actions; no disassembly steps</span>
+          <span class="annotation annotation-two">Microwave and fridge need extra appliance-specific cautions</span>
+        </div>
+      </section>
+
+      <section class="wire-section">
+        <div class="section-heading">
+          <span class="screen-number">SCREEN 03</span>
+          <div><h2>Make help a choice, not a requirement</h2><p>Offer a private, at-home route and a social, community route with equal weight.</p></div>
+        </div>
+        <div class="wire-frame">
+          <div class="frame-nav"><span>RC / REPAIR CAFE</span><span>REPAIR CHECK &nbsp; SUPPORT</span></div>
+          <div class="wire-support">
+            <div>
+              <span class="wire-label">02 / YOUR CHOICE</span>
+              <h3>Help can come to you,<br />or you can go to it.</h3>
+              <p>Search nearby options. No preference is assumed.</p>
+              <label>Town or postcode <span>[ ____________________ ]</span></label>
+              <div class="wire-button">[ FIND OPTIONS ]</div>
+            </div>
+            <div>
+              <div class="wire-option"><strong>↗ &nbsp; At-home repair technician</strong><small>For a private, one-to-one repair</small></div>
+              <div class="wire-option"><strong>↗ &nbsp; Community repair cafe</strong><small>For hands-on help with other people</small></div>
+              <p class="wire-caption">User chooses which search to open.</p>
+            </div>
+          </div>
+          <span class="annotation annotation-one">Recognize private repair preference</span>
+          <span class="annotation annotation-two">Keep community repair available, never forced</span>
+        </div>
+      </section>
+
+      <section class="validation">
+        <p class="label">WHAT TO TEST NEXT</p>
+        <h2>Validate the assumptions with more people.</h2>
+        <ul>
+          <li>Can people identify a useful first check without feeling pushed to disassemble anything?</li>
+          <li>Do both support routes feel equally easy to find and understand?</li>
+          <li>Does the safety language help people know when to stop?</li>
+        </ul>
+        <a href="index.html" class="wire-button">[ OPEN THE BUILT EXPERIENCE ]</a>
+      </section>
+    </main>
+
+    <footer class="wire-footer">LOW-FIDELITY PROTOTYPE &nbsp; / &nbsp; WEEK 3 CONTEXT MAPPING + TWO INTERVIEWS</footer>
+  </body>
+</html>
