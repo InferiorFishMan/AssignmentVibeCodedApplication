@@ -134,6 +134,11 @@ select {
 }
 
 .main-nav .prototype-link {
+  color: white;
+  transition: color 160ms ease;
+}
+
+.main-nav .prototype-link:focus-visible {
   color: var(--green);
 }
 
