@@ -134,12 +134,15 @@ select {
 }
 
 .main-nav .prototype-link {
-  color: white;
-  transition: color 160ms ease;
+  color: var(--green);
+  opacity: 0;
+  pointer-events: none;
 }
 
+.main-nav:hover .prototype-link,
 .main-nav .prototype-link:focus-visible {
-  color: var(--green);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .hero {
