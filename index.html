@@ -5,179 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Start with safe, simple checks for a broken household appliance, then choose the kind of repair help that suits you."
+      content="Simple, safety-first checks and repair help for your household appliance."
     />
-    <meta name="theme-color" content="#f5f4ef" />
-    <title>Repair Cafe | Make a confident next move</title>
-    <link rel="icon" href="images/Skeleton.png" />
+    <meta name="theme-color" content="#f5f5fb" />
+    <title>Repair Cafe | Simple help for a broken appliance</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-row">
-        <a class="brand" href="#" aria-label="Repair Cafe home">
-          <span class="brand-mark" aria-hidden="true">RC</span>
-          <span>Repair Cafe</span>
-        </a>
-        <nav aria-label="Main navigation" class="main-nav">
+        <a class="brand" href="#" aria-label="Repair Cafe home">Repair Cafe</a>
+        <nav class="main-nav" aria-label="Main navigation">
           <a href="#repair-check">Repair check</a>
-          <a href="#support">Find support</a>
-          <a class="prototype-link" href="prototype.html">View lo-fi prototype</a>
+          <a href="#support">Get help</a>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark mode</button>
         </nav>
       </div>
     </header>
 
     <main id="main">
       <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot"></span> Practical help, your way</p>
-            <h1>Something broke.<br />Start with the safe checks.</h1>
-            <p class="hero-intro">
-              Get a clear first step for your appliance. If it needs more, choose
-              private repair help or a community repair session.
-            </p>
-            <a class="button button-primary" href="#repair-check">
-              Start a repair check <span aria-hidden="true">↘</span>
-            </a>
-            <p class="quiet-note">No account. No pressure to take it apart.</p>
-          </div>
-          <aside class="hero-card" aria-label="A simple repair plan">
-            <div class="card-topline">
-              <span class="card-icon" aria-hidden="true">+</span>
-              <span>YOUR NEXT MOVE</span>
+        <div class="container hero-content">
+          <p class="eyebrow"><span class="status-light" aria-hidden="true"></span> A simple place to start</p>
+          <h1>Let’s get your<br /><span>appliance</span> back on track.</h1>
+          <p>Choose your appliance and tell us what happened. We’ll show you a few safe things to check.</p>
+          <a class="button button-primary" href="#repair-check">Start here <span aria-hidden="true">↓</span></a>
+          <p class="hero-note">You do not need to take anything apart.</p>
+        </div>
+      </section>
+
+      <section class="page-section repair-section" id="repair-check" aria-labelledby="repair-title">
+        <svg class="section-ornament repair-ornament scroll-art" viewBox="0 0 220 220" aria-hidden="true">
+          <circle cx="110" cy="110" r="76" />
+          <circle cx="110" cy="110" r="56" />
+          <path d="M110 19v22M110 179v22M19 110h22M179 110h22" />
+          <path d="m83 121 18 18 38-47" />
+        </svg>
+        <div class="container narrow-container">
+          <p class="step-label">Repair check</p>
+          <h2 id="repair-title">Tell us what happened</h2>
+          <p class="section-lead">Go through these two questions, then press the button to see your next steps.</p>
+
+          <form id="repairForm" class="repair-form">
+            <div class="form-step">
+              <label for="applianceType"><span class="step-number">1</span> What appliance is it?</label>
+              <select id="applianceType" name="appliance" required>
+                <option value="washing-machine">Washing machine</option>
+                <option value="fan">Fan</option>
+                <option value="kettle">Kettle</option>
+                <option value="vacuum">Vacuum cleaner</option>
+                <option value="microwave">Microwave</option>
+                <option value="toaster">Toaster</option>
+                <option value="fridge">Fridge</option>
+                <option value="other">Something else</option>
+              </select>
             </div>
-            <ol class="plan-list">
-              <li><span>01</span><div><strong>Describe the symptom</strong><small>Choose what you noticed</small></div></li>
-              <li><span>02</span><div><strong>Check what is safe</strong><small>Start with the outside</small></div></li>
-              <li><span>03</span><div><strong>Choose what suits you</strong><small>Continue solo or get help</small></div></li>
-            </ol>
-            <p class="card-footnote">You decide what happens next.</p>
+
+            <div class="form-step">
+              <label for="issueType"><span class="step-number">2</span> What is it doing?</label>
+              <select id="issueType" name="issue" required>
+                <option value="no-power">It will not turn on</option>
+                <option value="noise">It is making a strange noise</option>
+                <option value="hot">It is too hot or smells burnt</option>
+                <option value="leak">It is leaking</option>
+                <option value="weak">It is not working as well as usual</option>
+                <option value="unsure">I am not sure</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <label class="other-issue-field form-step" id="otherIssueField" for="otherIssue" hidden>
+              <span>In a few words, what happened?</span>
+              <textarea id="otherIssue" name="otherIssue" rows="3" maxlength="300" placeholder="For example: it stops after a few minutes"></textarea>
+            </label>
+
+            <button class="button button-primary check-button" type="submit">Show me what to check</button>
+          </form>
+
+          <section id="diagnosisResult" class="result-panel" aria-live="polite" aria-atomic="true" aria-labelledby="resultTitle">
+            <h3 id="resultTitle">Your next steps will appear here</h3>
+            <p>Choose the two answers above, then select “Show me what to check.”</p>
+          </section>
+
+          <aside class="safety-note">
+            <strong>Stop if something seems dangerous.</strong>
+            <p>See sparks, smoke, a damaged wire, or water near electricity? Move away. Do not touch the appliance. Ask a qualified repairer for help.</p>
           </aside>
         </div>
       </section>
 
-      <section class="section repair-section" id="repair-check" aria-labelledby="repair-title">
-        <div class="container repair-layout">
-          <div class="section-intro">
-            <p class="eyebrow">01 / Quick check</p>
-            <h2 id="repair-title">What is it doing?</h2>
-            <p>Pick the closest match. We will start with checks that do not require opening the appliance.</p>
-            <div class="privacy-note">
-              <span aria-hidden="true">◎</span>
-              <p><strong>Keep it private.</strong> Your repair check stays here. Location is only used if you open a map search.</p>
+      <section class="page-section support-section" id="support" aria-labelledby="support-title">
+        <svg class="section-ornament support-ornament scroll-art" viewBox="0 0 240 180" aria-hidden="true">
+          <path d="M14 140h51l24-48h77l23 48h37" />
+          <path d="M38 157h42l18-34h70l18 34h35" />
+          <circle cx="90" cy="92" r="7" />
+          <circle cx="166" cy="92" r="7" />
+        </svg>
+        <div class="container narrow-container">
+          <p class="step-label">Need more help?</p>
+          <h2 id="support-title">Choose what works for you</h2>
+          <p class="section-lead">Enter your town or postcode to find nearby repair help.</p>
+
+          <form id="locationForm" class="location-form">
+            <label for="location">Town or postcode</label>
+            <div class="location-input">
+              <input id="location" name="location" type="text" autocomplete="postal-code" placeholder="For example, Brooklyn" required />
+              <button class="button button-primary" type="submit">Find help</button>
             </div>
-          </div>
+            <p class="form-hint">Your location is only used to create the map searches below.</p>
+          </form>
 
-          <div class="check-card">
-            <form id="repairForm">
-              <div class="field-row">
-                <label for="applianceType">Appliance
-                  <select id="applianceType" name="appliance" required>
-                    <option value="washing-machine">Washing machine</option>
-                    <option value="fan">Fan</option>
-                    <option value="kettle">Kettle</option>
-                    <option value="vacuum">Vacuum</option>
-                    <option value="microwave">Microwave</option>
-                    <option value="toaster">Toaster</option>
-                    <option value="fridge">Fridge</option>
-                    <option value="other">Something else</option>
-                  </select>
-                </label>
-                <label for="issueType">What happened?
-                  <select id="issueType" name="issue" required>
-                    <option value="no-power">It will not turn on</option>
-                    <option value="noise">It is making an unusual noise</option>
-                    <option value="hot">It is hot or smells burnt</option>
-                    <option value="leak">There is a leak</option>
-                    <option value="weak">It is working poorly</option>
-                    <option value="unsure">I am not sure</option>
-                  </select>
-                </label>
-              </div>
-              <button class="button button-primary check-button" type="submit">
-                Show my first checks <span aria-hidden="true">→</span>
-              </button>
-            </form>
-
-            <div id="diagnosisResult" class="result-panel" aria-live="polite" aria-atomic="true">
-              <div class="result-placeholder">
-                <span class="result-symbol" aria-hidden="true">?</span>
-                <div>
-                  <h3>Your safe first checks will appear here</h3>
-                  <p>This is a starting point, not a diagnosis. Always follow the appliance manual.</p>
-                </div>
-              </div>
-            </div>
-            <p class="safety-line"><span aria-hidden="true">!</span> If you see sparks, smoke, a damaged cable, or water near electricity, step away and contact a qualified repairer.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section steps-section" aria-labelledby="steps-title">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">A sensible place to begin</p>
-            <h2 id="steps-title">Keep the first step simple.</h2>
-          </div>
-          <div class="steps-grid">
-            <article class="step-card">
-              <span class="step-number">A</span>
-              <h3>Look, do not open</h3>
-              <p>Check the plug, controls, visible vents, and anything your manual labels as user-accessible.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">B</span>
-              <h3>Stop when it is unsafe</h3>
-              <p>Do not handle damaged wiring, hot parts, standing water, or internal electrical components.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">C</span>
-              <h3>Pick the help you prefer</h3>
-              <p>Look for an at-home technician, ask someone you trust, or visit a repair cafe if you want to.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section support-section" id="support" aria-labelledby="support-title">
-        <div class="container support-layout">
-          <div class="support-copy">
-            <p class="eyebrow">02 / Your choice</p>
-            <h2 id="support-title">Help can come to you, or you can go to it.</h2>
-            <p>Search nearby options. No preference is assumed, and you do not need to join a group to get help.</p>
-            <form id="locationForm" class="location-form">
-              <label for="location">Town or postcode
-                <span class="input-row">
-                  <input id="location" name="location" type="text" autocomplete="postal-code" placeholder="e.g. 10001 or Brooklyn" required />
-                  <button class="button button-primary" type="submit">Find options</button>
-                </span>
-              </label>
-              <small>Your location is only added to the map searches when you choose to open one.</small>
-            </form>
-          </div>
           <div class="support-options" id="supportResults" aria-live="polite">
-            <p class="eyebrow">Choose what works for you</p>
             <a class="support-option" data-support="technician" href="https://www.google.com/maps/search/?api=1&query=appliance+repair+technician" target="_blank" rel="noopener noreferrer">
-              <span class="option-icon" aria-hidden="true">↗</span>
-              <span><strong>At-home repair technician</strong><small>For a private, one-to-one repair</small></span>
-              <span class="option-arrow" aria-hidden="true">→</span>
+              <span><strong>Repair person who can come to you</strong><small>Search for appliance repair nearby</small></span>
+              <span class="option-arrow" aria-hidden="true">↗</span>
             </a>
             <a class="support-option" data-support="cafe" href="https://www.google.com/maps/search/?api=1&query=repair+cafe" target="_blank" rel="noopener noreferrer">
-              <span class="option-icon" aria-hidden="true">↗</span>
-              <span><strong>Community repair cafe</strong><small>For hands-on help with other people</small></span>
-              <span class="option-arrow" aria-hidden="true">→</span>
+              <span><strong>Community repair cafe</strong><small>Get help at a local repair session</small></span>
+              <span class="option-arrow" aria-hidden="true">↗</span>
             </a>
-            <p id="supportMessage" class="support-message">Choose a location above to tailor both searches.</p>
+            <p id="supportMessage" class="support-message">Choose either option to open its map search.</p>
           </div>
-        </div>
-      </section>
 
-      <section class="closing-strip">
-        <div class="container closing-row">
-          <p><span class="closing-mark" aria-hidden="true">RC</span><strong>Repair is a choice, not a test.</strong> Make the next move that feels right for you.</p>
-          <a href="#repair-check">Back to the repair check ↑</a>
+          <div class="contact-box">
+            <h3>Prefer to talk?</h3>
+            <p>Phone and chat are examples for this prototype, not live support.</p>
+            <a class="phone-link" href="tel:+18005550199">Demo phone: +1 (800) 555-0199</a>
+            <button class="button button-secondary" id="openChat" type="button" aria-expanded="false" aria-controls="chatPanel">Try the chat demo</button>
+            <section class="chat-panel" id="chatPanel" aria-labelledby="chatTitle" hidden>
+              <div class="chat-heading">
+                <div><h4 id="chatTitle">Chat demo</h4><p>Replies are simulated; no one is monitoring this chat.</p></div>
+                <button id="closeChat" class="chat-close" type="button" aria-label="Close chat">×</button>
+              </div>
+              <div class="chat-messages" id="chatMessages" aria-live="polite">
+                <p class="chat-bubble">Hi. Tell us what is going on and we’ll suggest a next step.</p>
+              </div>
+              <form id="chatForm" class="chat-form">
+                <label class="visually-hidden" for="chatMessage">Your message</label>
+                <input id="chatMessage" name="message" type="text" placeholder="Write a message" maxlength="300" required />
+                <button class="button button-primary" type="submit">Send</button>
+              </form>
+            </section>
+          </div>
         </div>
       </section>
     </main>
@@ -185,8 +155,7 @@
     <footer class="site-footer">
       <div class="container footer-row">
         <span>Repair Cafe</span>
-        <span>Independent first steps. Human help when you want it.</span>
-        <a href="prototype.html">See the lo-fi prototype</a>
+        <a href="prototype.html">View the early prototype</a>
       </div>
     </footer>
     <script src="script.js"></script>

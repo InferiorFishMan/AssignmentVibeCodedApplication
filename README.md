@@ -1,6 +1,6 @@
 # Repair Cafe
 
-A static, mobile-friendly appliance repair guide. The experience offers a short, safety-first check and lets people choose between private at-home repair and a community repair cafe.
+A static, mobile-friendly appliance repair guide (v3). The experience offers a short, safety-first check and lets people choose between private at-home repair and a community repair cafe.
 
 ## Research-to-design
 
@@ -15,6 +15,8 @@ The prototype therefore:
 
 Two interviews are an early signal, not a representative sample. The lo-fi artifact at [prototype.html](./prototype.html) includes the research rationale and follow-up questions to test.
 
+The redesigned v3 interface reflects prototype usability feedback with a single-column, top-to-bottom reading order, plain-language prompts, larger controls and text, a light/dark switch, a free-text “Something else” symptom path, and clearly labelled demo contact options. Its soft futuristic racing palette uses only abstract geometric section accents (no logo or character illustration); scroll reveals affect only those accents and respect reduced-motion preferences. See [prototype-testing-notes.md](./prototype-testing-notes.md) for the facilitator's notes and changes.
+
 ## Run locally
 
 Serve the folder with any static web server:
@@ -23,7 +25,7 @@ Serve the folder with any static web server:
 python -m http.server 8000
 ```
 
-Visit `http://localhost:8000`. Open `/prototype.html` for the lo-fi prototype.
+Visit `http://localhost:8000` for the v3 build. Open `/prototype.html` for the lo-fi prototype.
 
 ## Deployment
 
